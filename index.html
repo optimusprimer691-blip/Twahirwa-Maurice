@@ -155,13 +155,13 @@ p:empty { display: none; }
 .offers .body p { font-size: 17px; line-height: 1.75; color: var(--text-soft); max-width: 100%; }
 
 /* -----------------------------------------------------------
-   STORY - Forced Grid Layout (Image will NEVER go on top)
+   STORY - UPDATED: Grid layout (Image will ALWAYS stay left)
    ----------------------------------------------------------- */
 .story { background: var(--forest); color: var(--on-dark); padding-block: 104px; }
 .story .split {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr; /* Image gets 1 part, text gets 1.5 parts */
-  gap: 48px;
+  display: grid !important;
+  grid-template-columns: 1fr 1.5fr !important;
+  gap: 48px !important;
   align-items: start;
 }
 .story .lead { display: flex; flex-direction: column; gap: 24px; }
@@ -211,8 +211,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .offers .body { padding: 24px 24px; }
   .profile .body { padding: 24px 24px; }
   
-  /* Make the story grid stack on smaller screens but control the image size */
-  .story .split { grid-template-columns: 1fr; gap: 24px; }
+  /* Responsive adjustments for Story */
+  .story .split {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
   .story .photo img { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 520px) {
