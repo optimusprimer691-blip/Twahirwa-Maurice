@@ -1,0 +1,551 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Maurice Twahirwa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: dark forest hero; light profile, experiences and offers with VISIBLE background photos; dark story and contact. */
+:root {
+  --ink: #0e261e;
+  --forest: #123226;
+  --ridge-back: #16392c;
+  --ridge-mid: #1d4636;
+  --paper: #f6f4ee;
+  --mist: #e8eee9;
+  --card: #fffdf8;
+  --gold: #d4a24c;
+  --gold-deep: #8a5f17;
+  --gold-text-on-gold: #3d2c0b;
+  --text: #14241e;
+  --text-soft: #2b3f36;
+  --text-muted: #3a4f45;
+  --line: #d3dcd5;
+  --line-dark: #3b5a4c;
+  --on-dark: #f6f4ee;
+  --on-dark-soft: #c4d2c9;
+  --on-dark-muted: #a9bdb2;
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter: 24px;
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.eyebrow { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.display { font-family: var(--font-display); font-weight: 500; line-height: 1.06; letter-spacing: -0.005em; }
+section { scroll-margin-top: 16px; }
+p:empty { display: none; }
+
+/* -----------------------------------------------------------
+   VISIBLE BACKGROUND PHOTOS
+   ----------------------------------------------------------- */
+.has-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--paper);
+}
+.bg {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.65; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+/* Soft wash over the photo */
+.has-bg::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(246,244,238,0.85) 0%,
+    rgba(246,244,238,0.6) 40%,
+    rgba(246,244,238,0.05) 100%
+  );
+}
+/* Frosted glass panels */
+.glass {
+  background: rgba(255, 253, 248, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 32px 36px;
+  box-shadow: 0 8px 24px rgba(14,38,30,0.08);
+}
+
+/* Header + hero */
+.hero { background: var(--ink); color: var(--on-dark); }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 26px; padding-block: 24px 0; }
+.brand { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--gold); }
+.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 26px; font-size: 15px; }
+.nav a.link { color: var(--on-dark-soft); padding-block: 10px; }
+.nav a.link:hover { color: var(--gold); }
+.lang { display: flex; border: 1px solid var(--line-dark); border-radius: 999px; padding: 3px; }
+.lang button {
+  min-width: 46px; min-height: 40px; border: 0; border-radius: 999px; cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  background: transparent; color: var(--on-dark-soft);
+}
+.lang button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+.hero-body { padding-block: 40px 72px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 48px; }
+.hero-text { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
+.hero h1 { font-size: clamp(40px, 5.6vw, 72px); color: var(--on-dark); }
+.hero-sub { max-width: 34ch; font-family: var(--font-display); font-weight: 500; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.2; color: var(--on-dark); text-wrap: balance; }
+.hero-photo { position: relative; min-width: 0; min-height: 440px; align-self: stretch; border-radius: 6px; overflow: hidden; background: var(--ridge-back); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 50%; }
+.ridge { display: block; width: 100%; height: 150px; }
+.r-back { fill: var(--ridge-back); }
+.r-mid { fill: var(--ridge-mid); }
+.r-front { fill: var(--paper); }
+
+/* Profile */
+.profile { padding-block: 96px; }
+.split { display: flex; flex-wrap: wrap; gap: 32px 40px; align-items: stretch; }
+.split > .lead { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.split > .body { flex: 1.4 1 420px; min-width: 0; }
+.profile .eyebrow, .offers .eyebrow, .exp .eyebrow { color: var(--gold-deep); }
+.h2 { font-size: clamp(34px, 4.6vw, 54px); }
+.profile .h2, .offers .h2, .exp .h2 { color: var(--ink); }
+.profile .body p { font-size: 20px; line-height: 1.75; color: var(--text-soft); max-width: 60ch; }
+
+/* -----------------------------------------------------------
+   EXPERIENCES - Wide Frosted Glass Boxes (No Green)
+   ----------------------------------------------------------- */
+.exp { padding-block: 96px; }
+.exp-head { display: flex; flex-direction: column; gap: 16px; max-width: 640px; margin-bottom: 32px; }
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
+}
+
+.card {
+  min-width: 0;
+  background: rgba(255, 253, 248, 0.8); 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.6); 
+  border-radius: 12px;
+  padding: 36px 40px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px; 
+  box-shadow: 0 8px 24px rgba(14,38,30,0.08);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #b98a3c;
+  background: rgba(255, 253, 248, 0.95);
+}
+.card h3 { 
+  font-family: var(--font-display); 
+  font-weight: 600; 
+  font-size: 28px; 
+  line-height: 1.15; 
+  color: var(--ink); 
+}
+.card p { 
+  font-size: 16px; 
+  line-height: 1.7; 
+  color: var(--text-muted); 
+}
+
+/* -----------------------------------------------------------
+   OFFERS - Wide, Short, Normal Paragraph Text
+   ----------------------------------------------------------- */
+.offers { padding-block: 96px; }
+
+.offers-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+.offers-head .h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  color: var(--ink);
+}
+
+/* The Wide & Short Box */
+.offers .body {
+  width: 100%;
+  max-width: 100%; /* Stretches across the full width */
+  padding: 28px 40px; /* Short top/bottom padding */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.offers .body p { 
+  font-size: 17px; 
+  line-height: 1.75; 
+  color: var(--text-soft); 
+  max-width: 100%; /* Text uses the full width */
+}
+
+/* Story */
+.story { background: var(--forest); color: var(--on-dark); padding-block: 104px; }
+.story .eyebrow { color: var(--gold); }
+.story .h2 { color: var(--on-dark); }
+.story .photo { border-radius: 6px; overflow: hidden; margin-top: 8px; }
+.story .photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.story .body { display: flex; flex-direction: column; gap: 22px; }
+.story .body p { font-size: 18px; line-height: 1.75; color: var(--on-dark-soft); max-width: 62ch; }
+.story .body p.close { color: var(--on-dark); }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--on-dark); padding-block: 104px 56px; }
+.contact .eyebrow { color: var(--gold); }
+.contact-head { display: flex; flex-direction: column; gap: 18px; max-width: 680px; margin-bottom: 48px; }
+.contact .h2 { font-size: clamp(38px, 5.6vw, 64px); color: var(--on-dark); }
+.contact-head p { font-size: 18px; line-height: 1.7; color: var(--on-dark-soft); }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.ccard { min-width: 0; border-radius: 6px; padding: 30px; display: flex; flex-direction: column; gap: 10px; }
+.ccard.phone { border: 1px solid var(--line-dark); }
+.ccard.wa { background: var(--gold); color: var(--ink); }
+.ccard .label { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+.ccard.phone .label { color: var(--on-dark-muted); }
+.ccard.wa .label { color: var(--gold-text-on-gold); }
+.ccard .number { font-family: var(--font-display); font-size: 38px; line-height: 1.1; user-select: all; overflow-wrap: anywhere; }
+.ccard .number.small { font-size: 28px; line-height: 1.25; }
+.ccard .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.mini {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding-inline: 20px;
+  border-radius: 999px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; background: transparent;
+}
+.phone .mini { color: var(--on-dark); border: 1px solid #5d7d6c; }
+.phone .mini:hover { border-color: var(--gold); }
+.wa .mini { color: var(--ink); border: 1px solid var(--ink); }
+.wa .mini:hover { background: var(--ink); color: var(--gold); }
+.foot { margin-top: 56px; border-top: 1px solid #28453a; padding-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: var(--on-dark-muted); }
+
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wa a:focus-visible, .wa button:focus-visible { outline-color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .card { transition: none; }
+}
+
+/* Responsive updates */
+@media (max-width: 760px) {
+  .topbar { justify-content: center; }
+  .nav { justify-content: center; }
+  .hero-body { grid-template-columns: minmax(0, 1fr); }
+  .hero-photo { min-height: 0; aspect-ratio: 4 / 3; }
+  .glass { padding: 24px 24px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 28px 24px; }
+  .offers .body { padding: 24px 24px; }
+}
+@media (max-width: 520px) {
+  .hero-body { padding-block: 24px 56px; gap: 36px; }
+  .ccard .number { font-size: 34px; }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="brand" data-i18n="eyebrow">Tourism Agent &amp; Consultant</span>
+      <nav class="nav" aria-label="Main">
+        <a class="link" href="#profile" data-i18n="navProfile">Profile</a>
+        <a class="link" href="#experiences" data-i18n="navExp">Experiences</a>
+        <a class="link" href="#offers" data-i18n="navOffers">Offers</a>
+        <a class="link" href="#story" data-i18n="navStory">My story</a>
+        <a class="link" href="#contact" data-i18n="navContact">Contact</a>
+        <div class="lang" role="group" aria-label="Language / Langue">
+          <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="hero-text">
+        <p class="hero-sub" data-i18n="heroSub">Tailored itineraries, trusted local partners and seamless ground handling, from the misty home of the mountain gorillas to the wider region, at fair and competitive rates.</p>
+      </div>
+      <div class="hero-photo">
+        <img src="gorilla.jpg" width="1400" height="934" alt="A mountain gorilla sitting among moss-covered bamboo in the forest" data-i18n-alt="altGorilla">
+      </div>
+    </div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+    <path class="r-back" d="M0 140 L120 90 L220 130 L360 60 L480 120 L600 80 L720 140 L860 70 L980 125 L1100 85 L1240 135 L1360 95 L1440 120 V220 H0Z"/>
+    <path class="r-mid" d="M0 170 L160 120 L300 165 L460 105 L620 160 L780 115 L940 168 L1100 118 L1260 165 L1440 130 V220 H0Z"/>
+    <path class="r-front" d="M0 200 L200 170 L420 195 L700 160 L980 192 L1220 168 L1440 190 V220 H0Z"/>
+  </svg>
+</header>
+
+<main>
+  <section class="profile has-bg" id="profile">
+    <img class="bg" src="bg-volcano.jpg" alt="" aria-hidden="true" loading="lazy" style="object-position: 50% 64%">
+    <div class="wrap split">
+      <div class="lead glass">
+        <span class="eyebrow" data-i18n="navProfile">Profile</span>
+        <h2 class="display h2" data-i18n="profileTitle">A local who knows the way.</h2>
+      </div>
+      <div class="body glass">
+        <p data-i18n="profileBody"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp has-bg" id="experiences">
+    <img class="bg" src="bg-kivu.jpg" alt="" aria-hidden="true" loading="lazy" style="object-position: 50% 62%">
+    <div class="wrap">
+      <div class="exp-head glass">
+        <span class="eyebrow" data-i18n="navExp">Experiences</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3 data-i18n="e1t"></h3>
+          <p data-i18n="e1b"></p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="e2t"></h3>
+          <p data-i18n="e2b"></p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="e3t"></h3>
+          <p data-i18n="e3b"></p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="e4t"></h3>
+          <p data-i18n="e4b"></p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="e5t"></h3>
+          <p data-i18n="e5b"></p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="e6t"></h3>
+          <p data-i18n="e6b"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="offers has-bg" id="offers">
+    <img class="bg" src="bg-akagera.jpg" alt="" aria-hidden="true" loading="lazy" style="object-position: 50% 60%">
+    <div class="wrap">
+      <div class="offers-head glass">
+        <span class="eyebrow" data-i18n="navOffers">Offers</span>
+        <h2 class="display h2" data-i18n="offersTitle">Planning you can rely on.</h2>
+      </div>
+      
+      <!-- The Wide, Short Box with Normal Text -->
+      <div class="body glass">
+        <p data-i18n="of0"></p>
+        <p data-i18n="of1"></p>
+        <p data-i18n="of2"></p>
+        <p data-i18n="of3"></p>
+        <p data-i18n="of4"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap split">
+      <div class="lead" style="gap:24px">
+        <span class="eyebrow" data-i18n="navStory">My story</span>
+        <figure class="photo">
+          <img src="maurice-guide.jpg" width="1000" height="667" loading="lazy" alt="Maurice pointing out a mountain gorilla resting in the forest" data-i18n-alt="altGuide">
+        </figure>
+      </div>
+      <div class="body">
+        <p data-i18n="story1"></p>
+        <p data-i18n="story2"></p>
+        <p class="close" data-i18n="story3"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-head">
+        <span class="eyebrow" data-i18n="navContact">Contact</span>
+        <h2 class="display h2" data-i18n="contactTitle">Let’s plan your journey.</h2>
+        <p data-i18n="contactSub">Tell me when you would like to travel and what you would love to see. I will reply with a tailored plan.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="ccard phone">
+          <span class="label" data-i18n="labelEmail">Email</span>
+          <span class="number small" id="num-mail">mauhirwa@gmail.com</span>
+          <div class="actions">
+            <a class="mini" href="mailto:mauhirwa@gmail.com" data-i18n="btnMail">Send email</a>
+            <button class="mini" type="button" data-copy="mauhirwa@gmail.com" data-i18n="btnCopy">Copy address</button>
+          </div>
+        </div>
+        <div class="ccard wa">
+          <span class="label">WhatsApp</span>
+          <span class="number" id="num-wa">+250 788 318 488</span>
+          <div class="actions">
+            <a class="mini" href="https://wa.me/250788318488" target="_blank" rel="noopener" data-i18n="btnWa">Open WhatsApp</a>
+            <button class="mini" type="button" data-copy="+250788318488" data-i18n="btnCopy">Copy number</button>
+          </div>
+        </div>
+      </div>
+      <div class="foot">
+        <span data-i18n="footerLeft">© 2026 Maurice Twahirwa</span>
+        <span data-i18n="footerRight">Tourism Agent &amp; Consultant · Rwanda</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var T = {
+    en: {
+      navProfile: 'Profile', navExp: 'Experiences', navOffers: 'Offers', navStory: 'My story', navContact: 'Contact',
+      eyebrow: 'Tourism Agent & Consultant',
+      meaning: 'Twahirwa · “the lucky one”',
+      heroTitle: 'Rwanda, through the eyes of the lucky one.',
+      heroSub: 'Tailored itineraries, trusted local partners and seamless ground handling, from the misty home of the mountain gorillas to the wider region, at fair and competitive rates.',
+      ctaWhatsapp: 'Chat on WhatsApp', ctaCall: 'Call or message me',
+      altGorilla: 'A mountain gorilla sitting among moss-covered bamboo in the forest',
+      altGuide: 'Maurice pointing out a mountain gorilla resting in the forest',
+      profileTitle: 'A local who knows the way.',
+      profileBody: 'Based in Kigali, my name is Maurice Twahirwa, 44 years old, married with two daughters, multilingual (EN/FR/RW/SW). Passionate about my country, I design and coordinate unique, tailor-made travel experiences across Rwanda and the Great Lakes region. Get in touch to plan your journey!',
+      expTitle: 'Rwanda, beyond the usual route.',
+      e1t: 'Advice for travellers and businesses',
+      e1b: 'Naturally, I am able to provide travel advice and guidance to tourists regarding various Rwandan destinations, tourism products, trusted service providers, and the development of unique experiences. These services are also tailored for businesses or institutions looking to undertake business, leisure, investment, or conference trips, or aiming to establish local partnerships.',
+      e2t: 'Tailor-made itineraries',
+      e2b: 'For example, I design and coordinate customized itineraries in Rwanda, featuring as a centerpiece the unforgettable experience of a mountain gorilla trek.',
+      e3t: 'Off the beaten path',
+      e3b: 'I also take great pride in showcasing off-the-beaten-path and hidden gems. These include Nyungwe National Park with its rainforest activities, as well as Volcanoes National Park, offering volcano hikes for a magnificent, immersive experience in the heart of protected local flora and fauna. I also guide visitors along the shores of Lake Kivu and offer exceptional birdwatching experiences in the heart of the Albertine Rift, where lush forests, wetlands, lakes, and verdant hills host a remarkably rich array of birdlife.',
+      e4t: 'Daily life and traditions',
+      e4b: 'Exploring daily life is another perspective I love to share. Our towns and villages boast a vibrant local artisan scene and bustling markets, making them ideal places to introduce guests to our local products, cuisine, and traditions. Visitors can taste our iconic tea and coffee grown on the surrounding hills, explore the countless islets of Lake Kivu on unforgettable hikes, and soak in the atmosphere set to the rhythm of fishermen’s songs at sunset. For instance, we love to share the experience of tea picking and its processing methods, or the ancestral art of brewing banana beer. And, of course, traditional dances are always a truly enchanting highlight.',
+      e5t: 'Culture and history',
+      e5b: 'Discovering our traditions often leads to exploring our rich culture and history. Places like the Nyanza King’s Palace trace centuries of history and Rwandan royal dynasties, while the well-documented Ethnographic Museum in Huye (formerly Butare) offers deep insights into traditional life and how it has evolved to this day.',
+      e6t: 'Remembrance',
+      e6b: 'Our history also includes heavier, more solemn chapters. For visitors who wish to pay their respects and learn more, I can direct and guide them to one of the national memorials dedicated to the 1994 Genocide against the Tutsi in Rwanda.',
+      offersTitle: 'Planning you can rely on.',
+      of0: '',
+      of1: 'Thanks to my in-depth knowledge of the Rwandan tourism ecosystem and a solid network of industry partners, I offer tailored planning, destination management, and local support services. I assist international travelers, travel agencies, media outlets, businesses, and tourism partners in accessing reliable local services with cost-effective travel packages and unforgettable experiences that deliver excellent value for money, all while highlighting the very best of Rwanda and the Great Lakes region.',
+      of2: 'I coordinate accommodation, transportation, tour guides, activities, and park bookings, leveraging a strong professional network to secure competitive deals for my clients.',
+      of3: 'As you can see, I love my country and, above all, I love sharing it with others, always attentively listening to my clients’ wishes, preferences, and needs, while ensuring their safety and comfort at all times. This is my approach to work, and it is the philosophy I wish to continue promoting through our collaboration. I am, of course, fully prepared to adapt to changing client needs, and my strong listening skills reflect this commitment.',
+      of4: 'I am confident that our collaboration will provide you with a reliable partner who can drive positive growth and complement your existing services seamlessly.',
+      storyTitle: 'Grown up in the home of the gorillas.',
+      storyQuote: 'Twahirwa means “the lucky one” in Kinyarwanda.',
+      story1: 'My name is Twahirwa, “the lucky one” in Kinyarwanda. I am fortunate to have grown up in the serene home of the endangered mountain gorillas, where my love for nature has been shaped by unforgettable encounters in the wild and my work promoting responsible tourism. Among the mountain gorilla families I have visited, the Hirwa Gorilla family holds a special place in my heart.',
+      story2: 'In 2020, tragedy struck when a lightning strike killed the silverback Munyinya and several family members. Having encountered the family twice in its entirety, I felt a deep personal loss. Though their memory still brings sadness, my passion remains stronger than ever: to help others experience these gentle giants in their natural habitat and discover the beauty of my country and this remarkable region.',
+      story3: 'I would be honoured to take you on that journey. Perhaps it was destiny all along.',
+      contactTitle: 'Let’s plan your journey.',
+      contactSub: 'Tell me when you would like to travel and what you would love to see. I will reply with a tailored plan.',
+      labelEmail: 'Email', btnMail: 'Send email',
+      labelPhone: 'Phone', btnCall: 'Call', btnCopy: 'Copy', btnWa: 'Open WhatsApp', copied: 'Copied',
+      footerLeft: '© 2026 Maurice Twahirwa', footerRight: 'Tourism Agent & Consultant · Rwanda'
+    },
+    fr: {
+      navProfile: 'Profil', navExp: 'Expériences', navOffers: 'Offres', navStory: 'Mon histoire', navContact: 'Contact',
+      eyebrow: 'Agent & consultant en tourisme',
+      meaning: 'Twahirwa · « le chanceux »',
+      heroTitle: 'Le Rwanda, à travers les yeux du Chanceux.',
+      heroSub: 'Itinéraires sur mesure, partenaires locaux de confiance et logistique sans faille, de la brume des montagnes où vivent les gorilles jusqu’au reste de la région, à des tarifs justes et compétitifs.',
+      ctaWhatsapp: 'Écrire sur WhatsApp', ctaCall: 'Appeler ou écrire',
+      altGorilla: 'Un gorille de montagne assis parmi des bambous couverts de mousse dans la forêt',
+      altGuide: 'Maurice montrant du doigt un gorille de montagne qui se repose dans la forêt',
+      profileTitle: 'Un guide local qui connaît le chemin.',
+      profileBody: 'Je m’appelle Maurice Twahirwa (« le chanceux » en kinyarwanda), passionné par le Rwanda. Marié, père de 2 filles, basé à Kigali, multilingue (FR/EN/RW/SW). Passionné par mon pays, je conçois et coordonne des expériences uniques et sur mesure à travers le Rwanda et la région des Grands Lacs. Contactez-moi pour planifier votre voyage !',
+      expTitle: 'Le Rwanda, hors des sentiers battus.',
+      e1t: 'Conseils aux voyageurs et aux entreprises',
+      e1b: 'Bien évidemment, je suis en mesure de fournir des conseils aux touristes sur les différentes destinations rwandaises, les produits touristiques, les prestataires de confiance et le développement d’expériences uniques. Ces prestations s’adressent aussi à des entreprises ou institutions désireuses de faire des visites d’affaires, touristiques, d’investissement, de congrès ou encore dans le but d’établir des partenariats locaux.',
+      e2t: 'Itinéraires sur mesure',
+      e2b: 'À titre d’exemple, je conçois et coordonne des itinéraires personnalisés au Rwanda, avec comme point d’orgue l’expérience inoubliable d’un trek à la rencontre des gorilles de montagne.',
+      e3t: 'Hors des sentiers battus',
+      e3b: 'Je mets aussi un point d’honneur à faire découvrir les lieux plus insolites et cachés, comme le Parc de Nyungwe avec ses activités dans la forêt tropicale, ou encore le Parc National des Volcans avec des excursions sur les volcans, une magnifique expérience immersive au cœur de la faune et de la flore locales et protégées. Je guide aussi les visiteurs sur les rives du lac Kivu et propose une expérience ornithologique exceptionnelle au cœur du Grand Rift Albertin, où forêts luxuriantes, zones humides, lacs et collines verdoyantes abritent une avifaune d’une richesse remarquable.',
+      e4t: 'Vie quotidienne et traditions',
+      e4b: 'La découverte du quotidien est un autre angle que j’aime aborder, avec une vie artisanale et locale riche dans nos villes et villages grâce à l’artisanat local et aux marchés, où il est intéressant de faire découvrir nos produits, notre alimentation, nos traditions ainsi que la dégustation du café et du thé emblématiques des collines environnantes, l’exploration d’innombrables îlots du lac Kivu lors de randonnées inoubliables, le tout au rythme des chants des pêcheurs au coucher du soleil. Nous aimons, par exemple, faire découvrir la cueillette du thé et son procédé de fabrication, ou encore l’art ancestral de la fabrication de la bière de banane. Et que dire des danses typiques, qui sont toujours un moment d’enchantement.',
+      e5t: 'Culture et histoire',
+      e5b: 'La découverte de nos traditions amène bien souvent à la découverte de notre culture et de notre histoire, comme avec le Palais Royal de Nyanza qui retrace l’histoire de plusieurs siècles et des dynasties royales rwandaises. Autre exemple encore, l’écomusée de Butare, richement documenté, qui permet de comprendre ce qu’était la vie autrefois et comment elle a évolué jusqu’à ce jour.',
+      e6t: 'Mémoire',
+      e6b: 'L’histoire a aussi ses moments plus lourds et plus graves. Pour les touristes qui le désirent, je peux aussi les orienter et les guider vers l’un des mémoriaux du génocide perpétré contre les Tutsi en 1994 que compte notre pays.',
+      offersTitle: 'Une organisation sur laquelle compter.',
+      of0: 'De tout temps, j’ai été animé par le souhait de faire découvrir les richesses de mon pays. Ce souhait et ma curiosité envers le Rwanda m’ont permis d’établir de nombreux liens avec les activités touristiques du pays.',
+      of1: 'Grâce à ma connaissance approfondie de l’écosystème touristique rwandais et à un solide réseau de partenaires du secteur, je propose des services sur mesure de planification, de gestion des destinations et d’accompagnement local. J’accompagne ainsi les voyageurs internationaux, les agences de voyages, les médias, les entreprises et les partenaires touristiques pour accéder à des services locaux fiables, avec des forfaits de voyage avantageux et des expériences inoubliables qui offrent un excellent rapport qualité-prix, tout en mettant en valeur le meilleur du Rwanda et de la région des Grands Lacs.',
+      of2: 'Je coordonne l’hébergement, le transport, les guides, les activités et les réservations dans les parcs, en m’appuyant sur un solide réseau professionnel pour obtenir des offres compétitives pour mes clients.',
+      of3: 'Comme vous pouvez le constater, j’aime mon pays et, au-dessus de tout, j’aime le faire découvrir, toujours dans l’écoute du client, de ses envies et de ses besoins, en respectant toujours la sécurité et le confort des personnes accueillies. Telle est ma conception du travail et ce que je veux continuer à mettre en avant avec votre collaboration. Bien entendu, je suis prêt à m’adapter aux besoins et aux souhaits des clients, et mon sens de l’écoute est toujours ouvert à cela.',
+      of4: 'Je suis sûr que notre collaboration vous permettra d’avoir un prestataire fiable et source d’évolution positive de nos activités complémentaires.',
+      storyTitle: 'Grandi au pays des gorilles.',
+      storyQuote: 'Twahirwa signifie « le chanceux » en kinyarwanda.',
+      story1: 'Je m’appelle Twahirwa, ce qui signifie « le chanceux » en kinyarwanda. J’ai la chance d’avoir grandi dans le havre paisible des gorilles de montagne, une espèce menacée, où mon amour pour la nature s’est forgé au fil de rencontres inoubliables dans la vie sauvage et à travers mon engagement en faveur d’un tourisme responsable. Parmi les familles de gorilles de montagne que j’ai pu visiter, la famille Hirwa occupe une place toute particulière dans mon cœur.',
+      story2: 'En 2020, un drame est survenu lorsqu’un coup de foudre a tué le dos argenté Munyinya ainsi que plusieurs membres de la famille. Ayant eu le privilège d’observer cette famille à deux reprises dans son intégralité, j’ai ressenti cette perte très profondément. Bien que leur souvenir suscite encore de la tristesse, ma passion demeure plus forte que jamais : faire découvrir ces doux géants dans leur habitat naturel et transmettre la beauté de mon pays ainsi que de cette région remarquable.',
+      story3: 'Ce serait un honneur pour moi de vous accompagner dans ce voyage. Après tout, c’était peut-être écrit dans le destin.',
+      contactTitle: 'Planifions votre voyage.',
+      contactSub: 'Dites-moi quand vous souhaitez voyager et ce que vous aimeriez voir. Je vous répondrai avec un plan sur mesure.',
+      labelEmail: 'E-mail', btnMail: 'Écrire un e-mail',
+      labelPhone: 'Téléphone', btnCall: 'Appeler', btnCopy: 'Copier', btnWa: 'Ouvrir WhatsApp', copied: 'Copié',
+      footerLeft: '© 2026 Maurice Twahirwa', footerRight: 'Agent & consultant en tourisme · Rwanda'
+    }
+  };
+
+  var lang = 'en';
+  function apply(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute('data-i18n');
+      if (T[l][k] != null) nodes[i].textContent = T[l][k];
+    }
+    var alts = document.querySelectorAll('[data-i18n-alt]');
+    for (var a = 0; a < alts.length; a++) {
+      var ak = alts[a].getAttribute('data-i18n-alt');
+      if (T[l][ak] != null) alts[a].setAttribute('alt', T[l][ak]);
+    }
+    var btns = document.querySelectorAll('.lang button');
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].setAttribute('aria-pressed', btns[j].getAttribute('data-lang') === l ? 'true' : 'false');
+    }
+    try { localStorage.setItem('mt-lang', l); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var value = b.getAttribute('data-copy');
+      var done = function () {
+        b.textContent = T[lang].copied;
+        setTimeout(function () { b.textContent = T[lang].btnCopy; }, 1800);
+      };
+      var fallback = function () {
+        var num = b.closest('.ccard').querySelector('.number');
+        var r = document.createRange();
+        r.selectNodeContents(num);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      };
+      try {
+        navigator.clipboard.writeText(value).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('mt-lang'); } catch (e) {}
+  apply(saved === 'fr' ? 'fr' : 'en');
+})();
+</script>
+
+</body></html>
